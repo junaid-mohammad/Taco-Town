@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Page title displayed in the browser tab -->
+  <title>Taco Town</title>
+  <meta name="description" content="Taco Town — a playful, responsive taco recipe app built by Junaid showcasing modern web design and frontend development.">
+  <link rel="icon" href="https://emojiapi.dev/api/v1/taco/64.png" type="image/png">
+  
+  <!-- Link to the external CSS file for styling -->
+  <link rel="stylesheet" type="text/css" href="/styles/main.css">
+</head>
+
+<body>
+  <!-- Add a navigation bar at the top -->
+  <nav class="navbar">
+    <form action="/" method="GET">
+      <button type="submit" class="nav-button">🏠 Home</button>
+    </form>
+  </nav>
+
+  <!-- Main heading of the page -->
+  <h1>Taco Town 🌮</h1>
+
+  <!-- Form with buttons to select a taco type -->
+  <form action="/recipe" method="POST" class="buttons">
+    <!-- Chicken button: submits the value "chicken" -->
+    <button type="submit" value="chicken" name="choice">🍗</button>
+    <!-- Beef button: submits the value "beef" -->
+    <button type="submit" value="beef" name="choice">🥩</button>
+    <!-- Fish button: submits the value "fish" -->
+    <button type="submit" value="fish" name="choice">🐟</button>
+  </form>
+
+  <!-- Recipe container: initially hidden -->
+  <div id="recipeContainer" class="hidden">
+
+    <!-- If no recipe is selected yet -->
+    <% if (!locals.recipe) { %>
+      <h2>Pick your favourite taco ingredient 👆</h2>
+    <% } else { %>
+      <!-- Display the selected recipe name -->
+      <h2><%= recipeName %> Ingredients </h2>
+      <!-- List of ingredients for the selected recipe -->
+      <ul id="ingredientsList">
+        <!-- Protein details -->
+        <li><%= proteinName %>, <%= proteinPreparation %></li>
+        <!-- Salsa details -->
+        <li><%= salsaName %></li>
+        <!-- Topping details: loop through each topping and display its quantity and name -->
+        <% toppings.forEach(topping => { %>
+          <li><%= topping.quantity %> of <%= topping.name %></li>
+        <% }); %>
+      </ul>
+    <% } %>
+
+  </div>
+
+  <footer>
+    <!-- Add a dynamic year to the footer using JS. -->
+    <% var X = new Date().getFullYear() %>
+    <p id="footer">Copyright © <%=X%> | Made with love by <a href="https://junaid-mohammad.github.io/HTML-Portfolio-Website/index.html">Junaid</a></p>
+  </footer>
+
+</body>
+
+</html>
