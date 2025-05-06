@@ -7,9 +7,9 @@ This repository contains the source code for **Taco Town**, a playful and intera
 ## 🖥️ Live Website
 
 You can access the live version of Taco Town here:  
-👉 **[Taco Town](https://taco-town-junaid.azurewebsites.net)** (Hosted on Microsoft Azure — _link will go here when deployed_)
+👉 **[Taco Town](https://taco-town-dbcefedjbge9c5hf.canadacentral-01.azurewebsites.net)** (Hosted on Microsoft Azure)
 
-Link to **[Azure Project](https://dev.azure.com/Junaid-Arif/Taco%20Town)**
+Link to **[Azure DevOps Project](https://dev.azure.com/Junaid-Arif/Taco%20Town)**
 
 ---
 
@@ -58,29 +58,73 @@ This project serves both as a creative exercise in designing a fun, user-friendl
 - **Dynamic Content Rendering with EJS**: Learned to pass server-side data into EJS templates for user-friendly, dynamic webpage updates.
 - **Routing and Form Handling with Express**: Built GET and POST routes to handle user input and display results.
 - **Responsive Design Principles**: Created a clean, mobile-friendly layout using modern CSS techniques including flexbox, media queries, and responsive units.
-- **Azure Deployment Workflow**: Understood the steps for deploying an app to **Microsoft Azure App Service**, including linking GitHub for CI/CD.
+- **Azure Deployment Workflow**: Understood the steps for deploying an app to **Microsoft Azure App Service**, including manual and automatic deployment options.
 
 ---
 
-## 🚀 Deployment on Azure
+## 🚀 Deployment & Workflow
 
-The Taco Town app is automatically deployed on **Microsoft Azure App Service** using **Continuous Deployment (CI/CD)** from GitHub.
+The **Taco Town** app is hosted on **Microsoft Azure App Service** and deployed using **Azure DevOps**, with code managed on **GitHub**.
 
-### 🛠 Deployment Workflow:
+### 🛠 Deployment Setup
 
-1. **App Service Creation**: Set up a new App Service on Azure.
-2. **Connected to GitHub**:
-   - Linked the App Service to the Taco Town GitHub repository through Azure's Deployment Center.
-   - Configured the main branch (`main`) for automatic deployment.
-3. **Push to Deploy**:
-   - Whenever new code is pushed to the `main` branch, Azure automatically:
-     - Pulls the latest commit.
-     - Rebuilds the app.
-     - Deploys the updated version to the live website.
+The **Taco Town** app is hosted on **Microsoft Azure App Service** with the code managed across **GitHub** and **Azure DevOps**.
 
-This workflow ensures that updates are immediately reflected on the live site without any manual intervention.
+### 🛠 Deployment Setup (Steps We Took)
+
+1. **Created Azure App Service**
+
+   - Set up a new App Service instance through the Azure portal.
+
+2. **Created GitHub Repo**
+
+   - Initialized a new GitHub repository (`Taco-Town`) and pushed all project files to it.
+
+3. **Created Azure DevOps Project**
+
+   - Created a project called _Taco Town_ in Azure DevOps.
+
+4. **Added Azure DevOps as a Git Remote**
+
+   - Used the following to connect local code to Azure DevOps:
+     ```bash
+     git remote add azure https://Junaid-Arif@dev.azure.com/Junaid-Arif/Taco%20Town/_git/Taco%20Town
+     ```
+
+5. **Push to Both Remotes**
+
+   - Pushed the same codebase to both GitHub (`origin`) and Azure DevOps (`azure`):
+     ```bash
+     git push origin main
+     git push azure main
+     ```
+
+6. **Configured Azure App Service to Pull from Azure DevOps Repo**
+
+   - In the App Service Deployment Center, linked the Azure DevOps repo for Continuous Deployment (CI/CD).
+
+7. **Deployment Trigger Testing**
+
+   - Confirmed that pushing to Azure DevOps automatically triggers a deployment to Azure App Service.
+
+8. **Port Configuration**
+   - No custom environment variables required since the app already supports:
+     ```javascript
+     const port = process.env.PORT || 3000;
+     ```
 
 ---
+
+### 🔥 Deployment Workflow (Current)
+
+Whenever you update code:
+
+```bash
+git add .
+git commit -m "Your commit message"
+git push origin main   # Pushes to GitHub
+git push azure main    # Pushes to Azure DevOps and triggers deployment
+```
 
 ## 🤝 Contribution
 

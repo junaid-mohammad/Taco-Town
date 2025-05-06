@@ -1,14 +1,14 @@
 {
   "name": "5.2-json",
   "version": "1.0.0",
-  "description": "",
+  "description": "A playful, responsive taco recipe web app using Node.js, Express, EJS templating, and JSON APIs. Built to practice server-side rendering, private API usage, and modern web design principles. Features include dynamic taco ingredient generation based on user choices, JSON unpacking, and responsive UI.",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Junaid Arif",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.3",
