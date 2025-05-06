@@ -1,5 +1,8 @@
 # Taco Town 🌮
 
+[![Azure DevOps](https://img.shields.io/badge/Deployed%20via-Azure%20DevOps-blue)](https://dev.azure.com/Junaid-Arif/Taco%20Town)
+[![Azure App Service](https://img.shields.io/badge/Hosted%20on-Azure%20App%20Service-brightgreen)](https://taco-town-dbcefedjbge9c5hf.canadacentral-01.azurewebsites.net)
+
 This repository contains the source code for **Taco Town**, a playful and interactive recipe app that helps users select their favorite taco and view its detailed ingredients. The project is built using **Node.js**, **Express**, and **EJS templating**, with a focus on dynamic content rendering, JSON data handling, and modern responsive web design.
 
 ---
