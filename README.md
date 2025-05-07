@@ -129,6 +129,8 @@ git push origin main   # Pushes to GitHub
 git push azure main    # Pushes to Azure DevOps and triggers deployment
 ```
 
+---
+
 ## 🤝 Contribution
 
 While this project is primarily for learning and portfolio purposes, feel free to fork the repository and submit a pull request if you'd like to contribute ideas for new features or improvements!
